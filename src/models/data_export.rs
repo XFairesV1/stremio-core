@@ -4,7 +4,7 @@ use serde::Serialize;
 use url::Url;
 
 use crate::{
-    constants::URI_COMPONENT_ENCODE_SET,
+    constants::{API_URL, URI_COMPONENT_ENCODE_SET},
     runtime::{
         msg::{Action, ActionLoad, Internal, Msg},
         Effect, EffectFuture, Effects, Env, EnvFutureExt, UpdateWithCtx,
@@ -56,7 +56,8 @@ impl<E: Env + 'static> UpdateWithCtx<E> for DataExport {
                     match result {
                         Ok(result) => {
                             let loaded_export_url = format!(
-                                "https://api.strem.io/data-export/{}/export.json",
+                                "{}data-export/{}/export.json",
+                                *API_URL,
                                 utf8_percent_encode(&result.export_id, URI_COMPONENT_ENCODE_SET)
                             )
                             .parse()
