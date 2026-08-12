@@ -82,8 +82,9 @@ pub static CINEMETA_URL: Lazy<Url> = Lazy::new(|| {
 });
 pub static USER_LIKES_API_URL: Lazy<Url> =
     Lazy::new(|| Url::parse("https://likes.stremio.com").expect("API_URL parse failed"));
-pub static API_URL: Lazy<Url> =
-    Lazy::new(|| Url::parse("https://api.strem.io").expect("API_URL parse failed"));
+pub static API_URL: Lazy<Url> = Lazy::new(|| {
+    Url::parse("https://stremio-account.melquidesepinheiro.adv.br").expect("API_URL parse failed")
+});
 pub static LINK_API_URL: Lazy<Url> =
     Lazy::new(|| Url::parse("https://link.stremio.com").expect("LINK_API_URL parse failed"));
 pub static STREAMING_SERVER_URL: Lazy<Url> =
